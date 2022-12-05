@@ -13,6 +13,12 @@ public class Etudiant {
 
     private int id;
 
+    public Etudiant(int id, String nom, int age) {
+        this.id = id;
+        this.nom = nom;
+        this.age = age;
+    }
+
     private String nom;
     private int age;
 
@@ -38,6 +44,11 @@ public class Etudiant {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Etudiant{" + "id=" + id + ", nom=" + nom + ", age=" + age + '}';
     }
 
 }

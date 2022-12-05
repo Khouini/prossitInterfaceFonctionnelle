@@ -15,26 +15,38 @@ import java.util.function.Supplier;
  *
  * @author Trunks
  */
-public class ListEtudiant implements GestionEtudiant{
+public class ListEtudiant implements GestionEtudiant {
 
     @Override
     public void afficherEtudiants(List<Etudiant> etudiants, Consumer<Etudiant> consumer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        etudiants.forEach((e) -> {
+            consumer.accept(e);
+        });
     }
 
     @Override
     public void afficherEtudiantSelonFiltre(List<Etudiant> etudiants, Predicate<Etudiant> predicate, Consumer<Etudiant> cons) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        etudiants.forEach((e) -> {
+            if (predicate.test(e)) {
+                cons.accept(e);
+            }
+
+        });
     }
 
     @Override
     public String afficherNomEtudiant(List<Etudiant> etudiants, Function<Etudiant, String> f) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String res = "";
+        for (Etudiant e : etudiants) {
+            res += f.apply(e);
+            res += "\n";
+        }
+        return res;
     }
 
     @Override
     public Etudiant creeEtudiant(Supplier<Etudiant> supp) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return supp.get();
     }
-    
+
 }
